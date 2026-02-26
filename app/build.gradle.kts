@@ -17,6 +17,12 @@ android {
         versionCode = 1
         versionName = "1.0.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        // CI 通过 -Pabi=arm64-v8a 指定仅构建 arm64；本地默认构建全架构
+        val abi = project.findProperty("abi") as? String
+        if (abi != null) {
+            ndk { abiFilters.clear(); abiFilters.add(abi) }
+        }
     }
 
     buildTypes {
