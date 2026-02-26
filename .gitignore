@@ -24,6 +24,10 @@
 # Local config (contains SDK path, not for VCS)
 local.properties
 
+# Signing keystore (secrets, never commit)
+*.jks
+*.keystore
+
 # Profiling & logs
 *.hprof
 *.log
